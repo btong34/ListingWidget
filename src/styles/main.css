@@ -1,0 +1,117 @@
+/* Typography */
+html {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+html h1 {
+  font-weight: 300;
+}
+
+html h3 {
+  font-weight: 500;
+}
+
+/* Title */
+.title {
+  margin-left: 10px;
+}
+
+/* Propert Card */
+.prop-card {
+  float: left;
+}
+
+.prop-card .box {
+  border: 1px solid #c9c9c9;
+  margin: 0.5em;
+}
+
+.prop-card .built-in {
+  float: right;
+  margin-top: 5px;
+  font-size: 0.75em;
+  font-weight: 300;
+}
+
+.prop-info {
+  display: inline-block;
+  width: 70%;
+}
+
+.prop-info .address {
+  margin: 0.5em 2em 0 0.5em;
+  color: #0074E4;
+}
+
+.prop-info .price {
+  margin: 0.2em 1em 0 0.2em;
+  font-size: 2.5em;
+}
+
+.prop-info .size {
+  margin: 0.2em 0 0 0.5em;
+}
+
+/* Sort Buttons */
+.sort-buttons button {
+  position: relative;
+  width: 10em;
+  height: 2em;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  color: white;
+  font-weight: 300;
+  font-size: 1em;
+  background-color: #78ea2c;
+  border: none;
+}
+
+.sort-buttons button.active {
+  background-color: #0074E4;
+}
+
+.sort-buttons button.active.asc:after {
+  position:absolute;
+  content: '';
+  right: 10px;
+  top: 10px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+}
+
+.sort-buttons button.active.desc:after {
+  position:absolute;
+  content: '';
+  right: 10px;
+  top: 15px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+@media (min-width: 640px) {
+  .prop-card {
+    width: 50%;
+  }
+
+  .prop-card .prop-photo {
+    width: 140px;
+    height: 140px;
+    float: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .prop-card {
+    width: 100%;
+  }
+
+  .prop-card .prop-photo {
+    display: none;
+  }
+}
