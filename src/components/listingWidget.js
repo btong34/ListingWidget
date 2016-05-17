@@ -48,7 +48,7 @@ export default class ListingWidget extends React.Component {
     let sortDir = this.toggleDirection(option)
 
     this.setState({
-      listings: _.orderBy(this.state.listings, option.fieldName, sortDir),
+      listings: dataUtils.orderBy(this.state.listings, option.fieldName, sortDir),
       sortBy: option.fieldName,
       sortDir: sortDir
     })

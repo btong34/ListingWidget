@@ -2,7 +2,7 @@ import React from 'react';
 import {mount} from 'enzyme';
 import {expect} from 'chai';
 import ListingWidget from '../src/components/listingWidget';
-import {feed1Data, feed2Data} from './testData';
+import {feed1Data } from './testData';
 
 describe('Listing Widget', () => {
   const jsx = <ListingWidget />;
@@ -47,7 +47,7 @@ describe('Listing Widget', () => {
 
       it('lists properties with the most bedrooms first', () => {
         bedBtn.simulate('click');
-        expect(component.find('.property-list .prop-card').at(0).find('.size').text()).to.eq('4 beds · 3 baths · 3000 sq ft');
+        expect(component.find('.property-list .prop-card').at(0).find('.size').text()).to.eq('4 beds · 3 baths ·  sq ft');
       })
     })
 
@@ -61,8 +61,23 @@ describe('Listing Widget', () => {
       it('lists properties with the fewest bedrooms first', () => {
         bedBtn.simulate('click');
         bedBtn.simulate('click');
-        expect(component.find('.property-list .prop-card').at(0).find('.size').text()).to.eq('3 beds · 2.5 baths · 2875 sq ft');
+        expect(component.find('.property-list .prop-card').at(0).find('.size').text()).to.eq('2 beds · 1 baths · 1500 sq ft');
       })
+    })
+  })
+
+  describe('items with missing fields when ordering', () => {
+    it('get de-prioritized to the end of the list', () => {
+      let component = mount(<ListingWidget initData={feed1Data} />);
+      let sqftBtn = component.find('.sort-buttons button').at(2);
+
+      sqftBtn.simulate('click');
+      expect(component.find('.property-list .prop-card').at(0).find('.size').text()).to.eq('3 beds · 2.5 baths · 2875 sq ft')
+      expect(component.find('.property-list .prop-card').at(2).find('.size').text()).to.eq('4 beds · 3 baths ·  sq ft')
+
+      sqftBtn.simulate('click');
+      expect(component.find('.property-list .prop-card').at(0).find('.size').text()).to.eq('2 beds · 1 baths · 1500 sq ft')
+      expect(component.find('.property-list .prop-card').at(2).find('.size').text()).to.eq('4 beds · 3 baths ·  sq ft')
     })
   })
 })

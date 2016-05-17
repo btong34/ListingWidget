@@ -4,7 +4,7 @@ const feed1Data = [
     "price": "549999",
     "beds": "4",
     "baths": "3",
-    "sqft": "3000",
+    "sqft": "",
     "built": "1976",
     "thumb": "http://fillmurray.com/150/150",
     "url": "http://zillow.com"
@@ -17,34 +17,16 @@ const feed1Data = [
     "built": "1976",
     "thumb": "http://fillmurray.com/150/150",
     "url": "http://zillow.com"
+  }, {
+    "address": "3121 5th Street, Gotham, NY 27520",
+    "price": "280000",
+    "beds": "2",
+    "baths": "1",
+    "sqft": "1500",
+    "built": "1948",
+    "thumb": "http://fillmurray.com/150/150",
+    "url": "http://zillow.com"
   }
 ]
 
-const feed2Data = {
-  "123 Dupe St, Chicago, IL 60615": {
-      "cost": "549,999",
-      "beds": "3",
-      "baths": "2.5",
-      "sq_ft": "3000",
-      "img": "http://fillmurray.com/150/150",
-      "url": "http://trulia.com"
-  },
-  "1774 Kapow Drive, Hyattsville, MD 20782": {
-      "cost": "419,950",
-      "beds": "3",
-      "baths": "2",
-      "sq_ft": "1700",
-      "img": "http://stevensegallery.com/200/200",
-      "url": "http://trulia.com"
-  },
-  "773 Duhnuhnuhna Street, Essex, MD 21221": {
-      "cost": "524,999",
-      "beds": "3",
-      "baths": "2",
-      "sq_ft": "1980",
-      "img": "http://stevensegallery.com/200/200",
-      "url": "http://trulia.com"
-  }
-}
-
-export { feed1Data, feed2Data };
+export { feed1Data };

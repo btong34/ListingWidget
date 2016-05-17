@@ -24,5 +24,18 @@ export default class DataUtils {
         .uniqBy('address') // not ideal; this would be better if we could unique by something like `zpid`
         .value()
     }
+
+    // Deprioritize entries that have no value for a field we want to sort by
+    // by pulling it out, sorting by a given field, then adding it back at the end of the list
+    this.orderBy = (list, field, direction) => {
+      let nilForField = _.remove(list, (item) => {
+        return _.isEmpty(item[field])
+      })
+
+      let newList = _.orderBy(list, field, direction)
+      newList.push(nilForField)
+
+      return _.flatten(newList)
+    }
   }
 }
